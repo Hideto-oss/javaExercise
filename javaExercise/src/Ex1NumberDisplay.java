@@ -1,5 +1,9 @@
 public class Ex1NumberDisplay {
 
+	/** マジックナンバーを定義 */
+	private final int START_NUM =   1;
+	private final int END_NUM   = 100;
+
 	/** 漢数字で数字を出力(親..制御) */
 	private void kanji_println(int n){
 		kanji_print(n);
@@ -35,11 +39,11 @@ public class Ex1NumberDisplay {
 	}
 	/** 1 から 100 まで判定を行い仕様通りにで出力 */
 	public void go(){
-		for(int i=0; i<100; i++){
-			if( ((i+1) % 3) == 0 || isThere3(i+1) ){
-				kanji_println(i+1);
+		for(int i = START_NUM; i <= END_NUM; i++){
+			if( ((i) % 3) == 0 || isThere3(i) ){
+				kanji_println(i);
 			}else{
-				System.out.println(i+1);
+				System.out.println(i);
 			}
 		}
 	}
