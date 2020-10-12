@@ -94,26 +94,18 @@ public class Ex2BigNumCalc {
 
 
 		checkBigger(n1Array,n2Array);
+		byte sign;
+		if(g_minus)		sign = -1;
+		else			sign = 1;
 		byte borrow = 0;
-		if(!g_minus) {									// n1 >= n2 の場合
-			for(int i = DIGIT_LIMIT - 1; i >= 0; i-- ) {
-				answer[i+1] = (byte)(n1Array[i] - n2Array[i] - borrow);
-				if((int)answer[i+1] < 0) {
-					answer[i+1] = (byte)(answer[i+1] + 10);
-					borrow = 1;
-				}else {
-					borrow = 0;
-				}
-			}
-		}else {											// n1 < n2 の場合
-			for(int i = DIGIT_LIMIT - 1; i >= 0; i-- ) {
-				answer[i+1] = (byte)(n2Array[i] - n1Array[i] - borrow);
-				if((int)answer[i+1] < 0) {
-					answer[i+1] = (byte)(answer[i+1] + 10);
-					borrow = 1;
-				}else {
-					borrow = 0;
-				}
+		for(int i = DIGIT_LIMIT - 1; i >= 0; i-- ) {
+			answer[i+1] = (byte)(
+					(n1Array[i] - n2Array[i]) * sign - borrow);
+			if((int)answer[i+1] < 0) {
+				answer[i+1] = (byte)(answer[i+1] + 10);
+				borrow = 1;
+			}else {
+				borrow = 0;
 			}
 		}
 		answer[0] = borrow;
