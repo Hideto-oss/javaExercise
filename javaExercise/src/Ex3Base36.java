@@ -62,9 +62,9 @@ public class Ex3Base36 {
 		String s2 = "1234!567890";
 		System.out.println(isOk(s2));			//false
 		String s3 = "ABCDEFG&HIJ";
-		System.out.println(isOk(s2));			//false
+		System.out.println(isOk(s3));			//false
 		String s4 = "zyxwv#utsrqpo";
-		System.out.println(isOk(s2));			//false
+		System.out.println(isOk(s4));			//false
 		String s5 = "012345ABCDEF";
 		System.out.println(toUpperCaseString(s5));			//012345ABCDEF
 		String s6 = "123abcDEFghi4";
@@ -72,13 +72,13 @@ public class Ex3Base36 {
 		String s7 = "xyz987OPQstu";
 		System.out.println(toUpperCaseString(s7));			//XYZ987OPQSTU
 		System.out.println(toUpperCaseString(s1));
-					//1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
+					//1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ
 	}
 
 	public void go(){
 		//処理を書く
 		//System.out.println("Not yet. Sorry.");
-		//checkMethods();
+		checkMethods();
 		String s1 = "1";
 		System.out.println("36Base (" + s1 + ") is [" + to10Base(s1) + "].");	//1
 		String s2 = "10";
