@@ -74,3 +74,7 @@
 #         class や interface を複数使うであろう
 #         ため、Ex8state という package 内で
 #         作成して下さい。
+# =========
+# 課題 9. Command デザインパターンを使って簡易ペイントソフトを
+#         実装せよ。GUI は FX を使って欲しいなあ。
+#         Ex9command という package 内で作成して下さい。
