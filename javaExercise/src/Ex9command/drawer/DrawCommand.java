@@ -1,7 +1,5 @@
 package Ex9command.drawer;
 
-import java.awt.Point;
-
 import Ex9command.command.Command;
 
 
@@ -11,19 +9,21 @@ public class DrawCommand implements Command {
 	protected Drawable drawable;
 
 	//描画位置
-	private Point position;
+	private double x;
+	private double y;
 
 	//Constructor
-	public DrawCommand(Drawable drawable, Point position) {
+	public DrawCommand(Drawable drawable, double x, double y) {
 		this.drawable = drawable;
-		this.position  = position;
+		this.x  = x;
+		this.y  = y;
 	}
 
 	//実行
 	@Override
 	public void execute() {
 		// TODO 自動生成されたメソッド・スタブ
-		drawable.draw(position.x, position.y);
+		drawable.draw((int)x, (int)y);
 	}
 
 }
