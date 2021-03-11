@@ -40,8 +40,16 @@ public class Main extends Application {
 			canvasClear();
 		});
 
+		Button undoButton = new Button("undo");
+		undoButton.setOnAction((event)->{
+			history.undo();
+			canvasClear();
+			history.execute();
+		});
+
 		BorderPane root = new BorderPane();
-		root.setTop(clearButton);
+		root.setLeft(clearButton);
+		root.setRight(undoButton);
 		root.setBottom(canvas);
 		canvasClear();
 		Scene scene = new Scene(root);
