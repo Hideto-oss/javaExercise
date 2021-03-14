@@ -3,7 +3,6 @@ package Ex10flag;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.ImagePattern;
@@ -19,15 +18,18 @@ public class Main extends Application {
 	//国旗の高さ
 	private double HEIGHT = 138.0;
 
+	Pane flagBase;
+
 	@Override
 	public void start(Stage pstage) throws Exception {
 		// TODO 自動生成されたメソッド・スタブ
 		Button decideButton = new Button("決定");
 		decideButton.setOnAction((event)->{
+			makeFlag(flagBase);
 		});
 
-		Pane flagBase = new Pane();
-		flagBase.setPrefSize(WIDTH, HEIGHT);
+		flagBase = new Pane();
+		flagBase.setPrefSize(Countries.WIDTH, Countries.HEIGHT);
 		makeFlag(flagBase);
 		root = new BorderPane();
 		root.setTop(flagBase);
@@ -41,11 +43,15 @@ public class Main extends Application {
 
 	void makeFlag(Pane base) {
 		//本来のイメージの縦横比にする方法が解らない
-		ImagePattern ip = new ImagePattern(new Image("Ex10flag/Data/flag001.png",WIDTH,HEIGHT,true,false));
+		//ImagePattern ip = new ImagePattern(new Image("Ex10flag/Data/flag001.png",WIDTH,HEIGHT,true,false));
 		//System.out.println("width  is [" + ip.getWidth() + "]");
 		//System.out.println("height is [" + ip.getHeight() + "]");
+		Countries cFlag = new Countries();
+		ImagePattern ip = cFlag.getImagePattern();
+		System.out.println("answer is [" + cFlag.getAnswerNumber() + "]");
 		Rectangle rect = new Rectangle(WIDTH * ip.getWidth() ,HEIGHT * ip.getHeight(), ip );
 		//rect.setFill(ip);
+		base.getChildren().clear();
 		base.getChildren().addAll(rect);
 	}
 	public static void main(String[] args) {
