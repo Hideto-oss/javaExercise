@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.ImagePattern;
@@ -50,17 +51,19 @@ public class Main extends Application {
 		}
 		flagCombo.setValue(flagCombo.getItems().get(0));
 
+		Label messageLabel = new Label();
+
 		Button decideButton = new Button("決定");
 		decideButton.setOnAction((event)->{
+			messageLabel.setStyle("-fx-text-fill: red;");
 			int selectNum = flagCombo.getSelectionModel().getSelectedIndex();
 			if(selectNum == 0 || selectNum == -1) {
-				System.out.println("コンボボックスで国名を選択して下さい。");
+				messageLabel.setText("コンボボックスで国名を選択して下さい。");
 			}else {
 				if(selectNum == cFlag.getAnswerNumber() ) {
-					System.out.println("正解です！");
+					messageLabel.setText("正解です！");
 				}else {
-					System.out.println("不正解です...");
-					System.out.println("正解は「" + items[cFlag.getAnswerNumber()] + "」でした。");
+					messageLabel.setText("不正解です...   " + "正解は「" + items[cFlag.getAnswerNumber()] + "」でした。");
 				}
 			}
 		});
@@ -75,7 +78,7 @@ public class Main extends Application {
 		root.setLeft(flagCombo);
 		root.setCenter(decideButton);
 		root.setRight(nextButton);
-		//root.setBottom(decideButton);
+		root.setBottom(messageLabel);
 		Scene scene = new Scene(root);
 		pstage.setScene(scene);
 		pstage.setTitle("Which country is this Flag?");
@@ -86,7 +89,7 @@ public class Main extends Application {
 	void makeFlag(Pane base) {
 		cFlag = new Countries();
 		ImagePattern ip = cFlag.getImagePattern();
-		System.out.println("answer is [" + cFlag.getAnswerNumber() + "]");
+		//System.out.println("answer is [" + cFlag.getAnswerNumber() + "]");
 		Rectangle rect = new Rectangle(Countries.WIDTH * ip.getWidth() ,Countries.HEIGHT * ip.getHeight(), ip );
 		base.getChildren().clear();
 		base.getChildren().addAll(rect);
