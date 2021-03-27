@@ -98,3 +98,11 @@
 #          (ただし継承版と委譲版の二つを作成する事)
 #          (Ex12adapter1 という package 内で継承版)
 #          (Ex12adapter2 という package 内で委譲版)
+# =========
+# 課題 13. Template Method デザインパターンを使った
+#          簡単なサンプルプログラムを作成せよ
+#          (ex13TemplateMethod)
+# =========
+# 課題 14. Factory Method デザインパターンを使った
+#          簡単なサンプルプログラムを作成せよ
+#          (ex14FactoryMethod)
